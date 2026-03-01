@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <title>Inclusive AI Study Companion</title>
+
+    <!-- Markmap Mindmap Library -->
+    <script src="https://unpkg.com/markmap-autoloader"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+
+<!-- Mode Toggle -->
+<div class="mode-toggle">
+    <button onclick="setMode('normal')">👨‍🎓 Normal</button>
+    <button onclick="setMode('blind')">👨‍🦯 Blind</button>
+    <button onclick="setMode('deaf')">🧏 Deaf</button>
+</div>
+<button onclick="toggleTheme()" class="theme-btn">🌙 Toggle Theme</button>
+<!-- HERO SECTION -->
+<div class="hero">
+    <h1>Inclusive AI Study Companion</h1>
+    <p>Accessible Learning for Everyone</p>
+</div>
+
+<!-- FEATURE CARDS -->
+<div class="features">
+    <div class="card">
+        <h2>👨‍🦯 Blind Mode</h2>
+        <p>Voice login and audio learning support.</p>
+    </div>
+
+    <div class="card">
+        <h2>🧏 Deaf Mode</h2>
+        <p>Visual summaries and enhanced readability.</p>
+    </div>
+
+    <div class="card">
+        <h2>👨‍🎓 Normal Mode</h2>
+        <p>Mindmaps, summaries and key points from PDF.</p>
+    </div>
+</div>
+
+<!-- UPLOAD SECTION -->
+<div class="upload-section">
+    <h2>Upload Study PDF</h2>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+
+        <label class="custom-file-upload">
+            <input type="file" name="pdf_file" required>
+            📄 Choose PDF File
+        </label>
+
+        <button type="submit" id="uploadBtn">Upload & Extract</button>
+
+        <p id="loadingText" style="display:none; margin-top:10px;">
+            ⏳ Processing PDF...
+        </p>
+
+    </form>
+</div>
+
+<!-- EXTRACTED TEXT -->
+{% if extracted_text %}
+<div class="result-section">
+    <h2>Extracted Text</h2>
+    <div class="text-box">
+        {{ extracted_text }}
+    </div>
+</div>
+{% endif %}
+
+<!-- SUMMARY -->
+{% if summary %}
+<div class="result-section">
+    <h2>Summary</h2>
+
+    <div class="text-box" id="summaryText">
+    {{ summary|safe }}
+</div>
+
+    <button onclick="readSummary()">🔊 Read</button>
+    <button onclick="pauseSummary()">⏸ Pause</button>
+    <button onclick="resumeSummary()">▶ Resume</button>
+    <button onclick="stopSummary()">🔇 Stop</button>
+
+    <br><br>
+
+    <a href="/download_summary?summary={{ summary }}" class="download-btn">
+        📥 Download Summary PDF
+    </a>
+
+</div>
+{% endif %}
+
+<!-- MINDMAP -->
+{% if key_points %}
+<div class="mindmap-container">
+    <h2>🗺 Mindmap View</h2>
+
+    <div class="mindmap-box">
+  <button onclick="downloadMindmap()">📥 Download Mindmap</button>      <pre class="markmap"># Study Mindmap
+{% for point in key_points %}
+- {{ point }}
+{% endfor %}
+        </pre>
+    </div>
+</div>
+{% endif %}
+
+<!-- Voice Login -->
+<div class="voice-login">
+    <h2>🎤 Voice Login</h2>
+    <button onclick="startVoiceLogin()">Start Voice Login</button>
+    <p id="voiceOutput"></p>
+</div>
+
+</body>
+</html>

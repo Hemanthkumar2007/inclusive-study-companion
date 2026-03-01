@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    text-align: center;
+}
+
+/* HERO */
+.hero {
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* FEATURES */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 20px;
+    width: 280px;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* UPLOAD */
+.upload-section {
+    margin: 40px 0;
+}
+
+.upload-section form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Hide default file input */
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: white;
+    color: #1e3c72;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.custom-file-upload:hover {
+    background: #f1f1f1;
+    transform: translateY(-3px);
+}
+
+/* BUTTONS */
+button {
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    transform: translateY(-3px);
+}
+
+/* RESULT SECTION */
+.result-section {
+    padding: 30px;
+}
+
+.text-box {
+    background: rgba(255,255,255,0.15);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* MINDMAP */
+.mindmap-container {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.mindmap-box {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    width: 95%;
+    max-width: 1200px;
+    height: 550px;
+    margin: auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.mindmap-box svg {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* VOICE LOGIN */
+.voice-login {
+    margin: 40px 0;
+}
+
+#voiceOutput {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* MODE TOGGLE */
+.mode-toggle {
+    margin: 30px 0;
+}
+
+.mode-toggle button {
+    margin: 5px;
+}
+
+/* BLIND MODE */
+.blind-mode {
+    background: black !important;
+    color: yellow !important;
+    font-size: 20px;
+}
+
+/* DEAF MODE */
+.deaf-mode {
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 25px;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+}
+
+/* THEME BUTTON */
+.theme-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* LIGHT MODE */
+.light-mode {
+    background: white !important;
+    color: black !important;
+}
+
+.light-mode .card {
+    background: #f1f1f1 !important;
+}
+
+/* HIGHLIGHT */
+.highlight {
+    background: yellow;
+    color: black;
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 5px;
+}
