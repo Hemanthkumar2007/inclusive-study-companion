@@ -4,6 +4,7 @@ from io import BytesIO
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
+import os
 
 app = Flask(__name__)
 
@@ -85,7 +86,8 @@ def download_summary():
 
 
 # ----------------------------
-# Run App
+# Run App (Render Compatible)
 # ----------------------------
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
